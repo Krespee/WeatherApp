@@ -4,7 +4,7 @@ import { getCurrentLocation } from './helpers/getCurrentLocation.js'
 
 
 export const WeatherApp = () => {
-  const API_KEY = "307c13c87690418530470e6ac192a842";
+  const API_KEY = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
   const difKelvin = 273.15
 
   const [ciudad, setCiudad] = useState("")
@@ -18,6 +18,7 @@ export const WeatherApp = () => {
   const handleSubmit = (e) =>{
     e.preventDefault()
     if (ciudad.length > 0) fetchClima(ciudad, setDataClima)
+    console.log(dataClima);
   }
 
   useEffect(() => {
