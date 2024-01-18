@@ -8,6 +8,6 @@ export const fetchClima = async (ciudad, setDataClima) => {
         setDataClima(data)
         console.log(data);
       } catch (error) {
-        console.error("Ocurrio el siguiente problema:", error);
+        console.error("The following problem occurred:", error);
       }
 }

@@ -34,7 +34,7 @@ export const WeatherApp = () => {
         value={ciudad}
         onChange={handleChangeCity}
         />
-        <button type='submit'>Buscar</button>
+        <button type='submit'>Search</button>
       </form>
 
       {
@@ -42,7 +42,7 @@ export const WeatherApp = () => {
           <div>
             <h2>{dataClima.name}</h2>
             <p>Temp: {parseInt(dataClima?.main?.temp - difKelvin)}°C</p>
-            <p>Clouds: {dataClima.weather[0].main}, {dataClima.weather[0].description}.</p>
+            <p>Weather: {dataClima.weather[0].description}.</p>
             <img src={`https://openweathermap.org/img/wn/${dataClima.weather[0].icon}@2x.png`} alt="" />
           </div>
         )

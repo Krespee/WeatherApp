@@ -1,7 +1,7 @@
 export const ipLocation = async () => {
     
         try {
-            console.log("Intentando con ubicacion por IP");
+            console.log("trying IP Location");
           const response = await fetch('https://ipinfo.io/json?token=9d3b076e2eb498');
           const data = await response.json();
       

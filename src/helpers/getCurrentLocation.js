@@ -8,7 +8,7 @@ export const getCurrentLocation = async (setDataClima, API_KEY) => {
         const {lat, lon} = await ipLocation();
         setDataClima(await fetchCurrentLocation(lat, lon, API_KEY))
     }else{
-        const {lat, lon} = navigatorLocation();
+        const {lat, lon} = await navigatorLocation();
         setDataClima(await fetchCurrentLocation(lat, lon, API_KEY))
     }
       
