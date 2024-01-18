@@ -37,14 +37,15 @@ export const WeatherApp = () => {
         />
         <button type='submit'>Search</button>
       </form>
-
+{/* "className={dataClima.name == "Buenos Aires" ? "as":"asd"}" */}
       {
         dataClima && (
-          <div>
-            <h2>{dataClima.name}</h2>
-            <p>Temp: {parseInt(dataClima?.main?.temp - difKelvin)}°C</p>
-            <p>Weather: {dataClima.weather[0].description}.</p>
-            <img src={`https://openweathermap.org/img/wn/${dataClima.weather[0].icon}@2x.png`} alt="" />
+          <div className='card'>
+            <h2 className='city-name'>{dataClima.city.name}</h2>
+             <img src={`https://openweathermap.org/img/wn/${dataClima.list[0].weather[0].icon}@2x.png`} alt="" />
+            <p className='temp'>{parseInt(dataClima?.list[0]?.main.temp - difKelvin)}°C</p>
+            <p>Feels Like: {parseInt(dataClima.list[0].main.feels_like - difKelvin)}°C</p>
+             <p>{dataClima.list[0].weather[0]?.description}.</p>
           </div>
         )
       }
