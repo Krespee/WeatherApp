@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
+    background: linear-gradient(to top, #ffffff, #1489ff);
   }
 
   
@@ -59,10 +59,17 @@ body {
   }
 
   /*Estilos para las tarjetas*/
-
+  .cards-container{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .card{
     width: 200px;
-    height: 300px;
+    height: 350px;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -77,6 +84,46 @@ body {
   .temp{
     font-size: 3rem;
   }
+
+  .sunny{
+    background: linear-gradient(to top, #ff7654, #feed7b);
+  }
+
+  .cloudy{
+    background: linear-gradient(to top, #5c7098, rgb(205, 223, 255));
+  }
+  .rainy{
+    background: linear-gradient(to top, rgb(79, 46, 170), rgb(172, 174, 255))
+  }
+
+  .night{
+    background: linear-gradient(to top, rgb(12, 42, 88), rgb(165, 167, 242))
+  }
+
+
+  /**/
+  .weather-details{
+    width: 100%;
+    height: max-content;
+    background: linear-gradient(to top, rgb(27, 124, 244),rgb(84, 89, 255));
+    display: flex;
+    margin-top: 10px;
+  }
+  .details-ul{
+    width: 100%;
+
+  }
+
+  .as{
+    list-style: none;
+    background-color: #ffffff1f;
+    height: 30px;
+    width: 95%;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px;
+  }
+
   
   /* Estilos para móviles */
   @media (max-width: 600px) {

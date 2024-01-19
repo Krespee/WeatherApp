@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { fetchClima } from './helpers/fetchClima.js'
 import { getCurrentLocation } from './helpers/getCurrentLocation.js'
+import { Cards } from './components/Cards.jsx';
 
 
 export const WeatherApp = () => {
   const API_KEY = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
-  const difKelvin = 273.15
 
   const [ciudad, setCiudad] = useState("")
 
@@ -26,6 +26,8 @@ export const WeatherApp = () => {
   }, [])
   
   return (
+    <>
+
     <div className='container'>
       <h1>Weather App</h1>
 
@@ -37,18 +39,27 @@ export const WeatherApp = () => {
         />
         <button type='submit'>Search</button>
       </form>
-{/* "className={dataClima.name == "Buenos Aires" ? "as":"asd"}" */}
+      </div>
+    <div className='cards-container'>
       {
-        dataClima && (
-          <div className='card'>
-            <h2 className='city-name'>{dataClima.city.name}</h2>
-             <img src={`https://openweathermap.org/img/wn/${dataClima.list[0].weather[0].icon}@2x.png`} alt="" />
-            <p className='temp'>{parseInt(dataClima?.list[0]?.main.temp - difKelvin)}°C</p>
-            <p>Feels Like: {parseInt(dataClima.list[0].main.feels_like - difKelvin)}°C</p>
-             <p>{dataClima.list[0].weather[0]?.description}.</p>
-          </div>
-        )
+        dataClima && <Cards dataClima={dataClima}></Cards>
       }
     </div>
+      {
+        dataClima &&     <div className='weather-details'>
+        <ul className='details-ul'>
+          <li className='as'>Humidity: {dataClima.list[0].main.humidity}</li>
+          <li className='as'>Pressure: {dataClima.list[0].main.pressure}</li>
+          <li className='as'>Sea Level: {dataClima.list[0].main.sea_level}</li>
+          <li className='as'>Temp Max: {dataClima.list[0].main.temp_max}</li>
+          <li className='as'>Temp Min: {dataClima.list[0].main.temp_min}</li>
+          <li className='as'>Wind Deg: {dataClima.list[0].wind.deg}</li>
+          <li className='as'>Wind Speed: {dataClima.list[0].wind.speed}</li>
+        </ul>
+      </div>
+      }
+
+    </>
+
   )
 }
